@@ -2,6 +2,16 @@
 
 ## create a data frame of your installed packages
 
+library(magrittr)
+library(readr)
+library(tidyverse)
+
+installed.packages() %>%
+  as.tibble() %>%
+  select(Package, LibPath, Version, Priority, Built) %T>%
+  write_csv(path = "data/installed-packages.csv")
+
+
 ## keep the variables
 ##   * Package
 ##   * LibPath
